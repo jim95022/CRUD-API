@@ -1,0 +1,6 @@
+venv
+myapi/__pycache__
+myapi/core/migrations
+myapi/main_page/__pycache__
+myapi/main_page/migrations
+myapi/main_page/migrations
