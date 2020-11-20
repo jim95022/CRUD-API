@@ -26,7 +26,7 @@ SECRET_KEY = 'h_r5@cz7$od)^r7f+ie)=(y21+6+-7-fwc(0)9qmzwof@7kei@'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['crudapitest.herokuapp.com', '127.0.0.1']
 
 
 # Application definition
