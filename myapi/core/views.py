@@ -32,13 +32,16 @@ class UserViewSet(viewsets.ViewSet):
         serializer = TeamMemberSerializer(user)
         return Response(serializer.data)
 
-    def update(self, request, pk=None):
+    def partial_update(self, request, pk=None):
         '''Update some features of the user'''
         queryset = TeamMember.objects.all()
         user = get_object_or_404(queryset, pk=pk)
-        serializer = TeamMemberSerializer(user, data=request.data)
+        serializer = TeamMemberSerializer(user, data=request.data, partial=True)
+        data = {}
         if serializer.is_valid():
             serializer.save()
+            data['success'] = 'update successful'
+            return Response(data=data)
         return Response(serializer.data)
 
     def destroy(self, request, pk=None):

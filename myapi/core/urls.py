@@ -21,7 +21,7 @@ urlpatterns = [
     ),
     url(
         r'^(?P<pk>\d+)/update$',
-        UserViewSet.as_view({'put': 'update'}),
+        UserViewSet.as_view({'put': 'partial_update'}),
         name='user-update',
     ),
     url(
