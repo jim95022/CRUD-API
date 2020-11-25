@@ -19,3 +19,16 @@ It was created to maintain information about the company's employees.
 
 <p>- <a href='https://documenter.getpostman.com/view/13557088/TVetbkxN'>Documentation</a><p>
 <p>- <a href='https://crudapitest.herokuapp.com/'>Website</a><p>
+
+
+<h1>Updates</h1>
+
+<ol>
+  <li>Views.py - changed to ViewSet</li>
+  <li>Removed anti pattern 'import *'</li>
+  <li>Removed db from git</li>
+    <li>Added PostgreSQL in heroku</li>
+    <li>Changed User model to AbstractUser model</li>
+        <li>Added some changes in API syntax</li>
+                <li>and improved other stuff...</li>
+</ol> 
