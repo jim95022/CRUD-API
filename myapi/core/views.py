@@ -1,112 +1,63 @@
-from rest_framework import status
-from rest_framework.views import APIView
+from django.shortcuts import get_object_or_404
+
+from rest_framework import viewsets, status
 from rest_framework.response import Response
-from rest_framework.permissions import IsAuthenticated
-from rest_framework.decorators import api_view, permission_classes
-# from account.models import Account 
-from django.contrib.auth.models import User
+from rest_framework.decorators import permission_classes
+from rest_framework.permissions import IsAuthenticated, AllowAny
 
-from .models import * 
-from .serializers import * 
+from .serializers import TeamMemberSerializer, RegistrationSerializer
+from .models import TeamMember
 
 
-@api_view(['POST', ])
-def registration_view(request):
+class UserViewSet(viewsets.ViewSet):
 
-    if request.method == 'POST':
-        serializer = RegistrationSerializer(data=request.data)
-        data = {}
-        if serializer.is_valid():
-            account = serializer.create()
-            data['response'] = 'successfully registered new user.'
-            data['username'] = account.username
-        else:
-            data = serializer.errors
-        return Response(data)
-
-
-@api_view(['GET', ])
-@permission_classes([IsAuthenticated])
-def all_members_view(request):
-    
-    data = {}
-
-    try:
-        team_member = TeamMember.objects.values_list('inner_username', flat=True)
-    except TeamMember.DoesNotExist:
-        data['failed'] = 'There is no data'
-        return Response(data=data)
-    
-    if request.method == 'GET':
-        data['list of users'] = team_member
-        return Response(data=data)
-
-
-@api_view(['GET', ])
-@permission_classes([IsAuthenticated])
-def detail_team_member_view(request, slug):
-    
-    try:
-        team_member = TeamMember.objects.get(inner_username=slug)
-    except TeamMember.DoesNotExist:
-        return Response(status=status.HTTP_404_NOT_FOUND)
-    
-    if request.method == 'GET':
-        serializer = TeamMemberSerializer(team_member)
+    def list(self, request):
+        '''Display all users'''
+        queryset = TeamMember.objects.all()
+        serializer = TeamMemberSerializer(queryset, many=True)
         return Response(serializer.data)
 
-
-@api_view(['POST',])
-@permission_classes([IsAuthenticated])
-def create_team_member_view(request):
-
-    if request.method == 'POST':
-        serializer = TeamMemberSerializer(data=request.data)
+    def create(self, request):
+        '''Create a new user. Method does not require authorization'''
+        serializer = RegistrationSerializer(data=request.data)
         if serializer.is_valid():
-            serializer.save()
+            serializer.create()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
+    def retrieve(self, request, pk=None):
+        '''Display information by user's ID'''
+        queryset = TeamMember.objects.all()
+        user = get_object_or_404(queryset, pk=pk)
+        serializer = TeamMemberSerializer(user)
+        return Response(serializer.data)
 
-
-@api_view(['PUT', ])
-@permission_classes([IsAuthenticated])
-def update_team_member_view(request, slug):
-    
-    try:
-        team_member = TeamMember.objects.get(inner_username=slug)
-    except TeamMember.DoesNotExist:
-        return Response(status=status.HTTP_404_NOT_FOUND)
-    
-    if request.method == 'PUT':
-        serializer = TeamMemberSerializer(team_member, data=request.data)
-        data = {}
+    def update(self, request, pk=None):
+        '''Update some features of the user'''
+        queryset = TeamMember.objects.all()
+        user = get_object_or_404(queryset, pk=pk)
+        serializer = TeamMemberSerializer(user, data=request.data)
         if serializer.is_valid():
             serializer.save()
-            data['success'] = 'update successful'
-            return Response(data=data)
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+        return Response(serializer.data)
 
-
-
-@api_view(['DELETE', ])
-@permission_classes([IsAuthenticated])
-def delete_team_member_view(request, slug):
-    
-    try:
-        team_member = TeamMember.objects.get(inner_username=slug)
-    except TeamMember.DoesNotExist:
-        return Response(status=status.HTTP_404_NOT_FOUND)
-    
-    if request.method == 'DELETE':
-        operation = team_member.delete()
+    def destroy(self, request, pk=None):
+        '''Delete the user'''
+        queryset = TeamMember.objects.all()
+        user = get_object_or_404(queryset, pk=pk)
+        operation = user.delete()
         data = {}
         if operation:
             data['success'] = 'delete successful'
         else:
             data['failure'] = 'delete failed'
         return Response(data=data)
-        
 
-
+    def get_permissions(self):
+        '''Give permissions for methods'''
+        if self.action == 'create':
+            permission_classes = [AllowAny]
+        else:
+            permission_classes = [IsAuthenticated]
+        return [permission() for permission in permission_classes]
 

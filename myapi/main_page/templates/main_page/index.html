@@ -1,34 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <title>CRUD API</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
+  <title>CRUD API</title>
 </head>
+
 <body>
-    <nav class="navbar navbar-expand-lg navbar navbar-light"  style="background-color: #c9e6f1;">
-        <a class="navbar-brand" href="/">CRUD API</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-          <div class="navbar-nav">
-            <a class="nav-item nav-link" href="/admin">admin</a>
-            <a class="nav-item nav-link" href="https://documenter.getpostman.com/view/13557088/TVetbkxN">Documentation</a>
-            <a class="nav-item nav-link" href="mailto:jim95022@gmail.com">Write to Author</a>
-          </div>
-        </div>
-      </nav>
-
-      <div class="jumbotron jumbotron-fluid" style="background-color: white;">
-        <div class="container">
-          <h1 class="display-4">Hello, this is the employees accounting app</h1>
-          <p class="lead">It was created to maintain information about the company's employees. <br> <br>The base contains information about <br> <i>'first_name'</i> - employee name, <br><i>'last_name'</i> - employee surname, <br><i>'inner_username'</i> - this username is generated as first name + last name and is used internally by the company, <br><i>'role'</i> - what position does the person hold, <br><i>'is_active'</i>, <br><i>'description'</i> - a quick summary of the employee, <br><i>'start_work'</i>, <br><i>'end_work'</i>, <br><i>'wage'</i></p>
-          <p class="lead"> To work with the database, you need to register and receive a token. After that, the token needs to be inserted into the header and get access. Read more in the documentation.</p>
-        </div>
+  <nav class="navbar navbar-expand-lg navbar navbar-light" style="background-color: #c9e6f1;">
+    <a class="navbar-brand" href="/">CRUD API</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+      aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <a class="nav-item nav-link" href="/admin">admin</a>
+        <a class="nav-item nav-link" href="https://documenter.getpostman.com/view/13557088/TVetbkxN">Documentation</a>
+        <a class="nav-item nav-link" href="mailto:jim95022@gmail.com">Write to Author</a>
       </div>
+    </div>
+  </nav>
 
-    <!-- <a href="/hello/?format=json"><h3>link</h3></a> -->
+  <div class="jumbotron jumbotron-fluid" style="background-color: white;">
+    <div class="container">
+      <h1 class="display-4">Hello, this is the employees accounting app</h1>
+      <p class="lead">
+
+        It was created to maintain information about the company's employees.
+        <br>
+        <br>The base contains information about:
+        <br><i>'first_name'</i> - employee name,
+        <br><i>'last_name'</i> - employee surname,
+        <br><i>'role'</i> - what position does the person hold,
+        <br><i>'description'</i> - a summary of the employee,
+        <br><i>'start_work'</i> - when an employee started work,
+        <br><i>'end_work'</i> - when an employee finished work,
+        <br><i>'wage'</i> - how much does the employee earn
+        <b>
+      </p>
+      <p class="lead"> To work with the database, you need to register and receive a token. After that, the token needs
+        to be inserted into the header and get access. Read more in the documentation.</p>
+    </div>
+  </div>
+
+  <!-- <a href="/hello/?format=json"><h3>link</h3></a> -->
 </body>
+
 </html>

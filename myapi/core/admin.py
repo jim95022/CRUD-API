@@ -1,13 +1,14 @@
 from django.contrib import admin
-from myapi.core.models import *
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin
 
+from myapi.core.models import TeamMember
+
 
 class CoreAdmin(admin.ModelAdmin):
-    list_display = ('id', 'first_name', 'last_name', 'inner_username', 'role', 'is_active')
-    list_display_links = ('inner_username',)
-    search_fields = ('inner_username',)
+    list_display = ('id', 'username', 'first_name', 'last_name', 'role', 'wage')
+    list_display_links = ('username',)
+    search_fields = ('username',)
 
 
 admin.site.register(TeamMember, CoreAdmin)

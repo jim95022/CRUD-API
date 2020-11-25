@@ -1,20 +1,32 @@
-from django.urls import path
+from django.conf.urls import url
 
-from .views import (
-    all_members_view,
-    detail_team_member_view,
-    create_team_member_view,
-    update_team_member_view,
-    delete_team_member_view
-)
-
-app_name = 'api'
+from .views import UserViewSet
 
 
 urlpatterns = [
-    path('', all_members_view, name='all_members'),
-    path('create/', create_team_member_view, name='create'),
-    path('<slug>/', detail_team_member_view, name='detail'),
-    path('<slug>/update', update_team_member_view, name='update'),
-    path('<slug>/delete', delete_team_member_view, name='delete')
+    url(
+        r'^$',
+        UserViewSet.as_view({'get': 'list'}),
+        name='user-list',
+    ),
+    url(
+        r'^(?P<pk>\d+)$',
+        UserViewSet.as_view({'get': 'retrieve'}),
+        name='user-detail',
+    ),
+    url(
+        r'^create$',
+        UserViewSet.as_view({'post': 'create'}),
+        name='user-create',
+    ),
+    url(
+        r'^(?P<pk>\d+)/update$',
+        UserViewSet.as_view({'put': 'update'}),
+        name='user-update',
+    ),
+    url(
+        r'^(?P<pk>\d+)/delete$',
+        UserViewSet.as_view({'delete': 'destroy'}),
+        name='user-delete',
+    ),
 ]
