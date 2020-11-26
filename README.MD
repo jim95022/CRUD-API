@@ -12,7 +12,6 @@ It was created to maintain information about the company's employees.
 <br><i>'start_work'</i> - when an employee started work, 
 <br><i>'end_work'</i> - when an employee finished work, 
 <br><i>'wage'</i> - how much does the employee earn
-<b>
 </p>
 
 <p> To work with the database, you need to register and receive a token. After that, the token needs to be inserted into the header and get access. Read more in the <a href='https://documenter.getpostman.com/view/13557088/TVetbkxN'>documentation</a>.</p>
@@ -23,12 +22,13 @@ It was created to maintain information about the company's employees.
 
 <h1>Updates</h1>
 
-<ol>
+<ul>
   <li>Views.py - changed to ViewSet</li>
   <li>Removed anti pattern 'import *'</li>
   <li>Removed db from git</li>
+    <li>Added Dotenv and sample for variables</li>
     <li>Added PostgreSQL in heroku</li>
     <li>Changed User model to AbstractUser model</li>
         <li>Added some changes in API syntax</li>
-                <li>and improved other stuff...</li>
-</ol> 
+                <li>and improved some other stuff...</li>
+</ul> 
