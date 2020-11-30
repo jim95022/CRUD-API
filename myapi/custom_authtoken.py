@@ -40,7 +40,7 @@ class CustomTokenAuthentication(BaseAuthentication):
         if len(auth) == 0:
             msg = _('Invalid token header. No credentials provided.')
             raise exceptions.AuthenticationFailed(msg)
-        elif len(auth) > 2:
+        elif len(auth) > 1:
             msg = _('Invalid token header. Token string should not contain spaces.')
             raise exceptions.AuthenticationFailed(msg)
 
