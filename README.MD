@@ -19,6 +19,17 @@ It was created to maintain information about the company's employees.
 <p>- <a href='https://documenter.getpostman.com/view/13557088/TVetbkxN'>Documentation</a><p>
 <p>- <a href='https://crudapitest.herokuapp.com/'>Website</a><p>
 
+<h1>New updates</h1>
+
+<ul>
+  <li>Removed one serializer</li>
+  <li>Removed methods in UserViewSet</li>
+  <li>Added custom password validation</li>
+  <quote>Now password must contain at least eight characters, at least one number and uppercase letter.</quote>
+  <li>Added custom password validation</li>
+  <li>Removed the word 'Token' from Authorization field in headers</li>
+ 
+</ul> 
 
 <h1>Updates</h1>
 
