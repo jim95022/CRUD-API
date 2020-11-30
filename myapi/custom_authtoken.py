@@ -16,7 +16,7 @@ def get_authorization_header(request):
 
 
 class CustomTokenAuthentication(BaseAuthentication):
-    keyword = 'Token'
+
     model = None
 
     def get_model(self):
