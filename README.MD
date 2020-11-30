@@ -26,7 +26,6 @@ It was created to maintain information about the company's employees.
   <li>Removed methods in UserViewSet</li>
   <li>Added custom password validation</li>
   <quote>Now password must contain at least eight characters, at least one number and uppercase letter.</quote>
-  <li>Added custom password validation</li>
   <li>Removed the word 'Token' from Authorization field in headers</li>
  
 </ul> 
