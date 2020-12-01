@@ -48,7 +48,7 @@ INSTALLED_APPS = [
 
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': [
-        'myapi.custom_authtoken.CustomTokenAuthentication',
+        'myapi.custom_authtoken.TokenAuthentication',
     ],
 }
 

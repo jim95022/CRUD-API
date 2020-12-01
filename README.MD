@@ -19,7 +19,16 @@ It was created to maintain information about the company's employees.
 <p>- <a href='https://documenter.getpostman.com/view/13557088/TVetbkxN'>Documentation</a><p>
 <p>- <a href='https://crudapitest.herokuapp.com/'>Website</a><p>
 
-<h1>New updates</h1>
+<h1>New update 1.3</h1>
+
+<ul>
+  <li>Regular Token Authentication is returned back</li>
+  <li>Superfluous links removed</li>
+  <li>Password validator is replaced into the right place</li>
+  <li>Added some changes in API syntax</li>
+</ul> 
+
+<h1>Updates 1.2</h1>
 
 <ul>
   <li>Removed one serializer</li>
@@ -27,18 +36,17 @@ It was created to maintain information about the company's employees.
   <li>Added custom password validation</li>
   <quote>Now password must contain at least eight characters, at least one number and uppercase letter.</quote>
   <li>Removed the word 'Token' from Authorization field in headers</li>
- 
 </ul> 
 
-<h1>Updates</h1>
+<h1>Updates 1.1</h1>
 
 <ul>
   <li>Views.py - changed to ViewSet</li>
   <li>Removed anti pattern 'import *'</li>
   <li>Removed db from git</li>
-    <li>Added Dotenv and sample for variables</li>
-    <li>Added PostgreSQL in heroku</li>
-    <li>Changed User model to AbstractUser model</li>
-        <li>Added some changes in API syntax</li>
-                <li>and improved some other stuff...</li>
+  <li>Added Dotenv and sample for variables</li>
+  <li>Added PostgreSQL in heroku</li>
+  <li>Changed User model to AbstractUser model</li>
+  <li>Added some changes in API syntax</li>
+  <li>and improved some other stuff...</li>
 </ul> 
