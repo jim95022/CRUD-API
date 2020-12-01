@@ -26,6 +26,7 @@ It was created to maintain information about the company's employees.
   <li>Superfluous links removed</li>
   <li>Password validator is replaced into the right place</li>
   <li>Added some changes in API syntax</li>
+  <li>Added readonly permission for non authenticated users</li>
 </ul> 
 
 <h1>Updates 1.2</h1>
